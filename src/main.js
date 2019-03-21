@@ -2,17 +2,19 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import CusBread from './components/cusBread.vue'
 import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import "./assets/css/index.css"
-import axios from 'axios'
-import moment from 'moment'
-axios.defaults.baseURL = "http://localhost:8888/api/private/v1/"
 
-Vue.prototype.$http = axios
+import moment from 'moment'
+import HttpServer from './components/http'
+
+
 
 Vue.use(ElementUI);
+Vue.use(HttpServer)
 
 Vue.config.productionTip = false
 
@@ -21,6 +23,7 @@ Vue.filter("fmtdate", (v) => {
   }
 
 )
+Vue.component(CusBread.name, CusBread)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
