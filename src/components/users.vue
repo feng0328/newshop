@@ -242,9 +242,18 @@ export default {
       // console.log(res);
     },
     // 编辑用户--显示对话框
-    showEditUser(user) {
-      this.formdata = user;
+    async showEditUser(user) {
+      // this.formdata = user;
       this.dialogFormVisibleEdit = true;
+      const res = await this.$http.get(`users/${user.id}`);
+      console.log(res);
+      const {
+        meta: { msg, status },
+        data
+      } = res.data;
+      if (status === 200) {
+        this.formdata = data;
+      }
     },
     // 删除用户
     showDeleUser(id) {
