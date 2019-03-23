@@ -15,7 +15,8 @@ HttpServer.install = function (Vue) {
 
     if (config.url !== "login") {
       const AUTH_TOKEN = localStorage.getItem("token");
-      axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
+      config.headers["Authorization"] = AUTH_TOKEN
+      // axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
     }
 
 
