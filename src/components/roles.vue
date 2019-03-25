@@ -106,12 +106,10 @@ export default {
       const arr1 = this.$refs.treeDom.getCheckedKeys();
       const arr2 = this.$refs.treeDom.getHalfCheckedKeys();
       const arr = [...arr1, ...arr2];
-      console.log(arr);
 
       const res = await this.$http.post(`roles/${this.currRoleId}/rights`, {
         rids: arr.join(",")
       });
-      console.log(res);
       const {
         data,
         meta: { msg, status }
@@ -135,7 +133,6 @@ export default {
         // this.getRoles();
         role.children = data;
       }
-      console.log(res);
     },
     async getRoles() {
       const res = await this.$http.get("roles");

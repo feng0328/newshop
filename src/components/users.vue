@@ -179,7 +179,6 @@ export default {
         meta: { msg, status },
         data
       } = res.data;
-      console.log(res);
 
       if (status === 200) {
         this.$message.success(msg);
@@ -198,7 +197,6 @@ export default {
       } = res.data;
       if (status === 200) {
         this.roles = data;
-        console.log(this.roles);
       }
       // 显示当前用户的角色
       const res2 = await this.$http.get(`users/${user.id}`);
@@ -246,7 +244,6 @@ export default {
       // this.formdata = user;
       this.dialogFormVisibleEdit = true;
       const res = await this.$http.get(`users/${user.id}`);
-      console.log(res);
       const {
         meta: { msg, status },
         data
@@ -264,7 +261,6 @@ export default {
       })
         .then(async () => {
           const res = await this.$http.delete(`users/${id}`);
-          console.log(res);
           const {
             meta: { msg, status }
           } = res.data;
